@@ -1,0 +1,58 @@
+ <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+ integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+<h1>Vendor Details</h1>
+
+<div style="overflow-x:auto;" >
+<div class="container-fluid">
+
+    <br><br>
+   
+        <nav class="navbar navbar-light bg-light">
+             <div>
+                    <i class="fas fa-arrow-alt-circle-left" (click)="goback()" style="font-size:36px;color: #12123b;"></i>
+               
+              
+             </div>
+            
+              <input [(ngModel)]="search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" style="width: 35%;margin-left:20%;">
+              <button (click)="searchVendor(search)"class="btn btn-outline-success my-2 my-sm-0" type="submit" style="margin-right:30%">Search</button>
+        
+                        <i class="fa fa-user-plus" (click)="saveVendor()" style="font-size:36px;margin-left: 90%;"></i>
+               
+
+    </nav>
+    <br>
+    <br>
+    
+    <br>  
+<table class="table" border="1">
+   <thead class="thead-dark"><tr >
+        <th >Vendor Id </th>
+        <th>Vendor Name</th>
+        <th>Location</th>
+        <th>Service</th>
+        <th>Contact Name</th>
+        <th>Department</th>
+        <th>Phone No</th>
+        <th>Actions</th>
+    </tr> </thead>
+    <tbody>
+    <tr class="table-default" *ngFor ="let bo of vendors| paginate:{itemsPerPage:5,currentPage:p}" >
+        <td>{{bo.vendorId}}</td>
+        <td>{{bo.vendorName}}</td>
+        <td>{{bo.location}}</td>
+        <td>{{bo.service}}</td>
+        <td>{{bo.contactName}}</td>
+        <td>{{bo.department}}</td>
+        <td>{{bo.phone}}</td>    
+        <td> <i class="fa fa-edit" (click)="getVendorById(bo.vendorId)" style="font-size:36px;color: rgb(14, 14, 78)"></i>     
+            |
+            <i class="fa fa-ban" (click)="disableVendor(bo)" style="font-size:36px;color: #12123b"></i>
+       </td>
+    </tr></tbody>
+
+</table><pagination-controls (pageChange)="p =$event"></pagination-controls>
+</div>
+
+
+

@@ -1,0 +1,59 @@
+
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<body>
+  <div class="log-button">
+            
+    <input type="submit" (click)="logout()" value="Logout"  [disabled]="form.invalid" class="btn btn-danger pull-right "  style="margin-top: 4%;margin-right: 6%;">
+  </div>
+<div class="container">
+  <h2>Staff Dashboard</h2>
+  <br>
+	<div class="row">
+    
+      <div class="col-lg-3">
+        <div class="panel-success class">
+          <div class="panel-heading">
+            <div class="row">
+              <div class="col-xs-6">
+                <i class="fa fa-address-card-o fa-5x"></i>
+              </div>
+              <div class="col-xs-6 text-right">
+                
+                <p class="announcement-text"> Vendor Details</p>
+              </div>
+            </div>
+          </div>
+          <a routerLink="/viewvendor">
+            <div class="panel-footer announcement-bottom">
+              <div class="row">
+                <div class="col-xs-6">
+                  Goto Vendor List
+                </div>
+                <div class="col-xs-6 text-right">
+                  <i class="fa fa-arrow-circle-right"></i>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+     
+    </div>
+  
+  
+  </body>
+
+   
+
+
+
+
+

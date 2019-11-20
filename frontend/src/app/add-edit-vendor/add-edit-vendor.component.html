@@ -1,0 +1,57 @@
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+<br>
+<br>
+<h1>ADD/EDIT Vendor</h1>
+
+
+<br><br><div class="container-fluid">
+       <nav class="navbar navbar-expand-lg navbar-light bg-light">
+           <form>
+ <div>
+       
+       <i class="fas fa-arrow-alt-circle-left" (click)="goback()" style="font-size:36px;color: #12123b"></i>
+ </div>
+</form>
+ </nav>
+     
+ <form #form="ngForm" autocomplete="off">
+       <input type = "hidden" class="form-control" name="vendor.vendorId"/>
+       Vendor Name* <input type = "text" class="form-control"  #vendorname="ngModel" [(ngModel)]="vendor.vendorName" name="vendorName" pattern = [a-zA-Z]{3,} placeholder="Vendor Name"  required/><br/>
+       <div class="validation-error" *ngIf="vendorname.invalid && vendorname.touched" style="color: red">Please match the requested format</div>
+       Address<textarea class="form-control" #vendorAddress="ngModel" id="exampleFormControlTextarea1" rows="3" [(ngModel)]="vendor.address" name="address" placeholder="Address" required></textarea><br/>
+       <div class="validation-error" *ngIf="vendorAddress.invalid && vendorAddress.touched" style="color: red">Please match the requested format</div>
+       Location*<select class="form-control" #location="ngModel" [(ngModel)]="vendor.location" name="location" placeholder="Location" required>
+        <div class="validation-error" *ngIf="location.invalid && location.touched" style="color: red">Please match the requested format</div>
+    <option>Trivandrum</option>
+    <option>Chennai</option>
+    <option>Banglore</option>
+</select>
+
+       Service* <input type = "text"  class="form-control" #service="ngModel" [(ngModel)]="vendor.service" name="service" minlength ="4" placeholder="Service" title="minimum length must be 4 or more" required/><br/>
+       <div class="validation-error" *ngIf="service.invalid && service.touched" style="color: red">Please match the requested format</div>
+       PINCODE<input type = "number" class="form-control" #pinCode="ngModel" [(ngModel)]="vendor.pinCode" name="pinCode" minlength = "4" placeholder="Pincode" title="minimum length must be 4 or more" required/><br/>
+       <div class="validation-error" *ngIf="pinCode.invalid && pinCode.touched" style="color: red">Please match the requested format</div>
+
+       Person Name* <input type = "text"  class="form-control" #contactName="ngModel" [(ngModel)]="vendor.contactName" minlength = "4" name="contactName" placeholder="Person Name" required/><br/>
+       <div class="validation-error" *ngIf="contactName.invalid && contactName.touched" style="color: red">Please match the requested format</div>
+
+       Department*<input type="text" class="form-control" #department="ngModel" [(ngModel)]="vendor.department" name="department"placeholder="Department" required/><br/>
+       <div class="validation-error" *ngIf="department.invalid && department.touched" style="color: red">Please match the requested format</div>
+                
+       Email <input type = "text" class="form-control"  #email="ngModel" [(ngModel)]="vendor.email" name="email" pattern = "[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,}$" required placeholder="Email" title="eg: abc@gmail.com" /><br/>
+      <div class="validation-error" *ngIf="email.invalid && email.touched" style="color: red">Please match the requested format</div>
+
+      
+           Mobile*<input type="text" class="form-control" #mobile="ngModel" [(ngModel)]="vendor.phone" name="phone" required pattern="[0-9]{10}" title="Minimum length is 10" placeholder="Contact Number" /><br/>
+           <div class="validation-error" *ngIf="mobile.invalid && mobile.touched" style="color: red">Please match the requested format</div>
+
+    <p style="margin-left: 2%;color: red;">* - All fields are mandatory</p>
+    <!-- <input type="submit" (click) ="addstaff()" value="Save" class="btn btn-info btn-block"> -->
+    <button  type="button" class="btn btn-dark btn-block" [disabled]="form.invalid" (click)="addVendor()" style="width:20%;margin-left:40%">SAVE</button>
+  
+    </form>
+</div>
+<br>
+<br>
